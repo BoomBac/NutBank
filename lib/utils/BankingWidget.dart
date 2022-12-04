@@ -3,6 +3,82 @@ import 'package:nb_utils/nb_utils.dart';
 import 'BankingColors.dart';
 import 'BankingContants.dart';
 
+class CustomDialog
+{
+  static Future ShowAlertDialog(BuildContext context,bool block,void Function() lbtn_press,void Function() rbtn_press,
+  {String title = "警告",String content = "默认内容",String lbtn = "确认",String rbtn = "取消"}) async 
+  {
+    return showDialog(
+      context: context,
+      barrierDismissible: block, // user must tap button!
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(title),
+          content: SingleChildScrollView(
+            child: Text(content),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text(lbtn),
+              onPressed: lbtn_press,
+            ),
+            TextButton(
+              child: Text(rbtn),
+              onPressed: rbtn_press,
+            ),
+          ],
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        );
+      },
+    );
+  }
+}
+
+class CustomButton extends StatefulWidget 
+{
+  static String tag = '/CustomButton';
+  var textContent;
+  VoidCallback onPressed;
+  var isStroked = false;
+  var height = 50.0;
+  var radius = 5.0;
+  var bg_color = kButtonBgColor;
+  var text_color = kButtonTextColor;
+
+  CustomButton(
+      {required this.textContent,
+      required this.onPressed,
+      this.isStroked = false,
+      this.height = 45.0,
+      this.radius = 5.0});
+
+  @override
+  State<CustomButton> createState() => _CustomButtonState();
+}
+
+class _CustomButtonState extends State<CustomButton> 
+{
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: widget.onPressed,
+      child: Container(
+        height: widget.height,
+        padding: EdgeInsets.fromLTRB(16, 4, 16, 4),
+        alignment: Alignment.center,
+        child: Text(
+          widget.textContent.toUpperCase(),
+          style: primaryTextStyle(
+              color: widget.text_color,                 
+              size: 18,
+              fontFamily: fontMedium),
+        ).center(),
+        decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(widget.radius)),color: widget.bg_color),
+      ),
+    );
+  }
+}
+
 // ignore: must_be_immutable
 class BankingButton extends StatefulWidget {
   static String tag = '/BankingButton';
@@ -35,7 +111,7 @@ class BankingButtonState extends State<BankingButton> {
         child: Text(
           widget.textContent.toUpperCase(),
           style: primaryTextStyle(
-              color:
+              color: 
                   widget.isStroked ? Banking_Primary : Banking_whitePureColor,
               size: 18,
               fontFamily: fontMedium),
@@ -131,6 +207,7 @@ class EditText extends StatefulWidget {
   var fontFamily;
   var text;
   var maxLine;
+  var keyboard_type;
   TextEditingController? mController;
 
   VoidCallback? onPressed;
@@ -144,6 +221,7 @@ class EditText extends StatefulWidget {
     var this.text = "",
     var this.mController,
     var this.maxLine = 1,
+    var this.keyboard_type = TextInputType.text
   });
 
   @override
@@ -160,6 +238,7 @@ class EditTextState extends State<EditText> {
           controller: widget.mController,
           obscureText: widget.isPassword,
           cursorColor: Banking_Primary,
+          keyboardType: widget.keyboard_type,
           maxLines: widget.maxLine,
           style: TextStyle(
               fontSize: widget.fontSize,
@@ -180,6 +259,7 @@ class EditTextState extends State<EditText> {
       return TextField(
         controller: widget.mController,
         obscureText: widget.isPassword,
+        keyboardType: widget.keyboard_type,
         cursorColor: Banking_Primary,
         style: TextStyle(
             fontSize: widget.fontSize,

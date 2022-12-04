@@ -1,5 +1,5 @@
-name: free_flutter_ui_kits
-description: Free Ui Kits For Flutter Framework Latest Version 2.5
+name: nut_bank
+description: NutBank
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -29,6 +29,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  provider: ^6.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -41,6 +42,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  change_app_package_name: ^1.1.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -62,6 +64,7 @@ flutter:
   assets:
     - fonts/
     - images/banking/
+    - images/nut/
 
   # To add assets to your application, add an assets section, like this:
 

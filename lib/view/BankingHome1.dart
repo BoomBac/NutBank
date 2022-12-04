@@ -1,9 +1,9 @@
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:nut_bank/global/transaction_record.dart';
+import 'package:provider/provider.dart';
 import '../model/BankingModel.dart';
 import '../utils/BankingColors.dart';
 import '../utils/BankingContants.dart';
@@ -25,8 +25,11 @@ class BankingHome1State extends State<BankingHome1> {
   late List<BankingHomeModel> mList1;
   late List<BankingHomeModel2> mList2;
 
+
+
   @override
-  void initState() {
+  void initState() 
+  {
     super.initState();
     currentIndexPage = 0;
     pageLength = 3;
@@ -34,6 +37,12 @@ class BankingHome1State extends State<BankingHome1> {
     mList2 = bankingHomeList2();
   }
 
+  @override
+  void dispose() 
+  {
+    // TODO: implement dispose
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -212,7 +221,7 @@ class BankingHome1State extends State<BankingHome1> {
                 ),
                 ListView.builder(
                   scrollDirection: Axis.vertical,
-                  itemCount: mList1.length,
+                  itemCount: Provider.of<RecordProvider>(context).records_num,
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
                   itemBuilder: (BuildContext context, int index) {
@@ -229,13 +238,13 @@ class BankingHome1State extends State<BankingHome1> {
                           Icon(Icons.account_balance_wallet,
                               size: 30, color: mList1[index].color),
                           10.width,
-                          Text('${mList1[index].title}',
+                          Text(Provider.of<RecordProvider>(context).records[index].from,
                                   style: primaryTextStyle(
                                       size: 16,
                                       color: mList1[index].color,
                                       fontFamily: fontMedium))
                               .expand(),
-                          Text(mList1[index].bal!,
+                          Text(Provider.of<RecordProvider>(context).records[index].num.toString(),
                               style: primaryTextStyle(
                                   color: mList1[index].color, size: 16)),
                         ],

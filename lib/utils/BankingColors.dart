@@ -11,7 +11,7 @@ const Banking_TextColorOrange = Color(0xFF008000);
 const Banking_TextColorYellow = Color(0xFF242525);
 const Banking_TextLightGreenColor = Color(0xFF8ed16f);
 
-const Banking_app_Background = Color(0xFFf3f5f9);
+const Banking_app_Background = Color.fromARGB(237, 242, 214, 250);
 const Banking_blackColor = Color(0xFF070706);
 const Banking_view_color = Color(0XFFDADADA);
 const Banking_blackLightColor = Color(0xFF242525);
@@ -21,7 +21,7 @@ const Banking_bottomEditTextLineColor = Color(0xFFDBD9D9);
 const Banking_backgroundFragmentColor = Color(0xFFF7F5F5);
 const Banking_palColor = Color(0xFF4a536b);
 const Banking_BalanceColor = Color(0xFF8ed16f);
-const Banking_whitePureColor = Color(0xFFffffff);
+const Banking_whitePureColor = Color(0xffffffff);
 const Banking_subTitleColor = Color(0xFF5C5454);
 const Banking_blueColor = Color(0xFF041887);
 const Banking_blueLightColor = Color(0xFF41479B);
@@ -31,3 +31,6 @@ const Banking_greenLightColor = Color(0xFF05E10E);
 const Banking_skyBlueColor = Color(0xFF03A9F4);
 const Banking_pinkLightColor = Color(0xFFE7586A);
 const Banking_purpleColor = Color(0xFFAD3AC3);
+
+const kButtonBgColor = Color.fromARGB(183, 12, 218, 121);
+const kButtonTextColor = Color.fromARGB(255, 255, 255, 255);

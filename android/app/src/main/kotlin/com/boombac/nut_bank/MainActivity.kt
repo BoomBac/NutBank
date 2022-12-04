@@ -1,4 +1,4 @@
-package com.flutter.uikits.free_flutter_ui_kits
+package com.boombac.nut_bank
 
 import io.flutter.embedding.android.FlutterActivity
 

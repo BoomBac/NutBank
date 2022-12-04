@@ -234,7 +234,8 @@ List<BankingRateInfoModel> bankingRateInformationList() {
   return list;
 }
 
-List<BankingHomeModel> bankingHomeList1() {
+List<BankingHomeModel> bankingHomeList1() 
+{
   List<BankingHomeModel> list = [];
   var list1 = BankingHomeModel(
       title: "Default Account", color: Banking_BalanceColor, bal: "+\$50 USD");

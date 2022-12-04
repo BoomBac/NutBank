@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:nb_utils/nb_utils.dart';
 import '../utils/BankingColors.dart';
 import '../utils/BankingContants.dart';
@@ -29,7 +30,7 @@ class _BankingForgotPwdState extends State<BankingForgotPwd> {
       backgroundColor: Banking_app_Background,
       appBar: PreferredSize(
         preferredSize: Size(double.infinity, width * 0.45),
-        child: headerView("Forgot\nPassword", width * 0.45, context),
+        child: headerView("忘记\n密码", width * 0.45, context),
       ),
       body: Stack(
         children: <Widget>[
@@ -46,23 +47,23 @@ class _BankingForgotPwdState extends State<BankingForgotPwd> {
                 ).paddingOnly(
                     left: spacing_standard_new, right: spacing_standard_new),
                 16.height,
-                EditText(text: "New Password", isPassword: true, isSecure: true)
+                EditText(text: "新密码", isPassword: true, isSecure: true)
                     .paddingOnly(
                         left: spacing_standard_new,
                         right: spacing_standard_new),
                 8.height,
                 EditText(
-                        text: "Confirm Password",
+                        text: "确认密码",
                         isPassword: true,
                         isSecure: true)
                     .paddingOnly(
                         left: spacing_standard_new,
                         right: spacing_standard_new),
                 16.height,
-                BankingButton(
+                CustomButton(
                   textContent: Banking_lbl_SignIn,
                   onPressed: () {
-                    BankingDashboard().launch(context);
+                    Navigator.pushNamed(context, BankingDashboard.tag);
                   },
                 ).paddingOnly(
                     top: spacing_standard_new,

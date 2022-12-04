@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.flutter.uikits.free_flutter_ui_kits">
+    package="com.boombac.nut_bank">
    <application
         android:label="free_flutter_ui_kits"
         android:icon="@mipmap/ic_launcher">

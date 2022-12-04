@@ -2,6 +2,7 @@ const Banking_ic_walk1 = "images/banking/Banking_ic_walk1.png";
 const Banking_ic_walk2 = "images/banking/Banking_ic_walk2.png";
 const Banking_ic_walk3 = "images/banking/Banking_ic_walk3.png";
 const Banking_ic_face_id = "images/banking/banking_ic_face_id.png";
+const Banking_ic_wechart = "images/nut/wechart.png";
 const Banking_ic_Home = "images/banking/Banking_ic_Home.svg";
 const Banking_ic_Transfer = "images/banking/Banking_ic_Transfer.svg";
 const Banking_ic_Payment = "images/banking/Banking_ic_Payment.svg";

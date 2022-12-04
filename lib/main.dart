@@ -1,8 +1,16 @@
-import 'package:flutter/material.dart';
-import 'screen/BankingDashboard.dart';
 
-void main() {
-  runApp(const MyApp());
+
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'global/transaction_record.dart';
+import 'routes.dart';
+
+void main() 
+{
+  runApp(
+    ChangeNotifierProvider(create: (context) => RecordProvider(),
+        child: const MyApp()),);
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: BankingDashboard(),
+      routes: routers,
     );
   }
 }
